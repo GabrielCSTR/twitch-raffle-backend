@@ -1,5 +1,5 @@
 {
-  "name": "stream-raffle",
+  "name": "api",
   "version": "0.0.1",
   "description": "RESTful API service for Stream Raffle",
   "author": "STRDeveloped",

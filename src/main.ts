@@ -19,9 +19,12 @@ async function bootstrap() {
   app.use(bodyParser.urlencoded({ extended: true })) 
   app.use(passport.initialize())
 
+   // PREFIX
+   app.setGlobalPrefix('api/v1');
+
   return await app.listen(APP_CONFIG.APP.PORT)
 }
 
 bootstrap().then(() => {
-  logger.info(`Backend is running at ${APP_CONFIG.APP.PORT}, env: ${environment}.`)
+  logger.info(`🚀 App is running at ${APP_CONFIG.APP.PORT}, env: ${environment}.`)
 })
