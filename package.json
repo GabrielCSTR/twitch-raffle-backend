@@ -1,10 +1,16 @@
 {
-  "name": "api",
+  "name": "stream raffle",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "RESTful API service for Stream Raffle",
+  "author": "STRDeveloped",
+  "license": "MIT",
+  "homepage": "https://github.com/xstrdoto/stream-raffle-backend#readme",
+  "documentation": "https://github.xstrdoto.me/stream-raffle-backend",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xstrdoto/stream-raffle-backend.git"
+  },
   "private": true,
-  "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -20,9 +26,18 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@d-fischer/passport-twitch": "^1.0.5",
     "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/mapped-types": "*",
+    "@nestjs/passport": "^9.0.3",
     "@nestjs/platform-express": "^9.0.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "helmet": "^6.1.5",
+    "passport": "^0.6.0",
+    "passport-twitch-strategy": "^2.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
   },
