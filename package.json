@@ -1,5 +1,5 @@
 {
-  "name": "stream raffle",
+  "name": "stream-raffle",
   "version": "0.0.1",
   "description": "RESTful API service for Stream Raffle",
   "author": "STRDeveloped",
@@ -30,16 +30,23 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/jwt": "^10.0.3",
     "@nestjs/mapped-types": "*",
     "@nestjs/passport": "^9.0.3",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/typeorm": "^9.0.1",
+    "@types/passport-jwt": "^3.0.8",
+    "class-validator": "^0.14.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "helmet": "^6.1.5",
+    "mongodb": "3.7.3",
     "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
     "passport-twitch-strategy": "^2.2.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "typeorm": "^0.3.14"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",

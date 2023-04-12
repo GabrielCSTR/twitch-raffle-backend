@@ -6,7 +6,7 @@ const ROOT_PATH = path.join(__dirname, '..')
 const packageJSON = require(path.resolve(ROOT_PATH, 'package.json'))
 
 export const APP = {
-  PORT: 8000,
+  PORT: 3000,
   ROOT_PATH,
   DEFAULT_CACHE_TTL: 60 * 60 * 24,
   MASTER: 'STDEv',
@@ -32,8 +32,16 @@ export const CROSS_DOMAIN = {
   allowedReferer: 'surmon.me',
 }
 
-export const MONGO_DB = {
+export const MONGO_DB_PROD = {
   uri: argv.db_uri || `mongodb://127.0.0.1:27017/NodePress`,
+}
+
+export const MONGO_DB = {
+    DB_HOST: argv.DB_HOST || 'localhost',
+    DB_PORT: argv.DB_PORT || 27017,
+    DB_USERNAME: argv.DB_USERNAME || "",
+    DB_PASSWORD: argv.DB_PASSWORD || "",
+    DB_DATABASE: argv.DB_DATABASE || "",
 }
 
 export const REDIS = {
@@ -46,14 +54,14 @@ export const REDIS = {
 export const AUTH = {
   expiresIn: argv.auth_expires_in || 3600,
   data: argv.auth_data || { user: 'root' },
-  jwtSecret: argv.auth_key || 'nodepress',
+  jwtSecret: argv.auth_key || 'devstrstreamraffle',
   defaultPassword: argv.auth_default_password || 'root',
 }
 
 export const TWITCH = {
     clientID: argv.twitch_id || '959cf3eaki4ml4qfg2ror5pgfkh454',
     clientSecret: argv.twitch_secret || 'ihkq41lcai2018p9ng4iwpe5ajahpu',
-    callbackURL: argv.twitch_callback || 'http://localhost:8000/auth/twitch/callback',
+    callbackURL: argv.twitch_callback || 'http://localhost:3000/auth/twitch/callback',
     scope: argv.twitch_scope || ["user_read", "channel:read:subscriptions"],
   }
 
