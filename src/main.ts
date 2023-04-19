@@ -19,8 +19,10 @@ async function bootstrap() {
   app.use(bodyParser.urlencoded({ extended: true })) 
   app.use(passport.initialize())
 
-   // PREFIX
-   app.setGlobalPrefix('api/v1');
+  app.enableCors({origin: "http://localhost:8080", credentials: true});
+  
+  // PREFIX
+  app.setGlobalPrefix('api/v1');
 
   return await app.listen(APP_CONFIG.APP.PORT)
 }

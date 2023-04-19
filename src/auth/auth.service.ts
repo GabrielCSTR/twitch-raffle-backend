@@ -10,14 +10,15 @@ export class AuthService {
     private readonly jwtService: JwtService
   ) {}
 
-  async validateTwitchUser(profile: any){
+  async validateTwitchUser(accessToken: any, profile: any){
     const { id: twitchId } = profile;
     const user = await this.usersService.findOne(twitchId);
     if(user) {
-      return user;
+      return user; 
     } else {
       const player: UserEntity = {
         twitchId,
+        token_twitch: accessToken, 
         ...profile,
         created_at: new Date()
       }

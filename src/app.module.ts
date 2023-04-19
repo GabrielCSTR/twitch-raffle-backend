@@ -6,6 +6,10 @@ import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as APP_CONFIG from '@app/app.config';
 import { ConfigModule } from '@nestjs/config';
+import { TwitchModule } from './twitch/twitch.module';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { RouletteBetsModule } from './roulette-bets/roulette-bets.module';
+
 
 @Module({
   imports: [
@@ -20,9 +24,11 @@ import { ConfigModule } from '@nestjs/config';
       synchronize: true
     }),
     AuthModule, 
-    UsersModule
+    UsersModule, TwitchModule, RouletteBetsModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+  ],
 })
 export class AppModule {}

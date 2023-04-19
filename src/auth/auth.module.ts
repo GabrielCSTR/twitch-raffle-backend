@@ -9,6 +9,7 @@ import { UserEntity } from '@app/users/entities/user.entity';
 import { UsersModule } from '@app/users/users.module';
 import { JwtModule } from '@nestjs/jwt';
 import * as APP_CONFIG from '@app/app.config'
+import { TwitchAuthGuard } from './guards/twitch-auth.guard';
 @Module({
   imports: [ 
     UsersModule,
@@ -22,6 +23,6 @@ import * as APP_CONFIG from '@app/app.config'
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, twitchStrategy]
+  providers: [AuthService, twitchStrategy, TwitchAuthGuard]
 })
 export class AuthModule {}

@@ -16,7 +16,7 @@ export class twitchStrategy extends PassportStrategy(TwitchStrategy, 'twitch') {
   }
 
   async validate(accessToken: string, refreshToken: string, profile: any, done) {
-    const user = await this.authService.validateTwitchUser(profile);
+    const user = await this.authService.validateTwitchUser(accessToken, profile);
     if (!user) {
       throw new UnauthorizedException();
     } else {

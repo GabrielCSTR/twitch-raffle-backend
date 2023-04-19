@@ -13,6 +13,10 @@ export class UserEntity {
 
     @IsString()
     @Column()
+    token_twitch: string;
+
+    @IsString()
+    @Column()
     displayName: string;
 
     @IsString()
