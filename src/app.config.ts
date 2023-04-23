@@ -59,8 +59,8 @@ export const AUTH = {
 }
 
 export const TWITCH = {
-    clientID: argv.twitch_id || '959cf3eaki4ml4qfg2ror5pgfkh454',
-    clientSecret: argv.twitch_secret || 'ihkq41lcai2018p9ng4iwpe5ajahpu',
+    clientID: argv.twitch_id || '',
+    clientSecret: argv.twitch_secret || '',
     callbackURL: argv.twitch_callback || 'http://localhost:3000/api/v1/auth/twitch/callback',
     scope: argv.twitch_scope || ["user:read:follows", "channel:read:subscriptions", "moderator:read:followers"],
   }
