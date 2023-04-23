@@ -1,14 +1,14 @@
 {
   "name": "api",
-  "version": "0.0.1",
-  "description": "RESTful API service for Stream Raffle",
+  "version": "0.0.0",
+  "description": "RESTful API service for Twitch Raffle",
   "author": "STRDeveloped",
   "license": "MIT",
-  "homepage": "https://github.com/xstrdoto/stream-raffle-backend#readme",
-  "documentation": "https://github.xstrdoto.me/stream-raffle-backend",
+  "homepage": "https://github.com/GabrielCSTR/twitch-raffle#readme",
+  "documentation": "https://github.com/GabrielCSTR/twitch-raffle",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xstrdoto/stream-raffle-backend.git"
+    "url": "https://github.com/GabrielCSTR/twitch-raffle.git"
   },
   "private": true,
   "scripts": {
