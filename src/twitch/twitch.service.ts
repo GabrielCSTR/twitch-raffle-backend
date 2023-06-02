@@ -18,7 +18,6 @@ export class TwitchService {
         headers,
       })
       .toPromise();
-
     if (!response) {
       throw new Error('Não foi possível obter a resposta da API do Twitch.');
     }

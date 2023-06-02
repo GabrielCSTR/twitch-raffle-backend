@@ -4,7 +4,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserEntity } from './entities/user.entity';
 import { MongoRepository } from 'typeorm';
-
+import { ObjectID } from 'mongodb';
 @Injectable()
 export class UsersService {
   constructor(
@@ -29,8 +29,8 @@ export class UsersService {
     return await this.userRepository.findOne({ where: { twitchId }})
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(id: string, updateUserDto: UpdateUserDto) {
+    return await this.userRepository.update(ObjectID(id), updateUserDto);
   }
 
   remove(id: number) {

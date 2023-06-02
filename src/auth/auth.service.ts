@@ -14,7 +14,13 @@ export class AuthService {
     const { id: twitchId } = profile;
     const user = await this.usersService.findOne(twitchId);
     if(user) {
-      return user; 
+      const updateToken: UserEntity = {
+        ...user,
+        token_twitch: accessToken
+      }
+      await this.usersService.update(user._id as string, updateToken);
+      const userUpdated = await this.usersService.findOne(twitchId);
+      return userUpdated; 
     } else {
       const player: UserEntity = {
         twitchId,
