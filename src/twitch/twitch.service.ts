@@ -43,14 +43,9 @@ export class TwitchService {
 
       } while (cursor);
 
-      console.log("DATA", subs);
       // Get Views ID
       const userIds: any = subs.map((follow) => follow.user_id);
-      // Mont Views Params (ex: id=12313&id=124545...)
-      const userIdsParam = userIds.map((id) => `id=${id}`).join('&');
-
-      console.log("USERS", userIds);
-
+      
       // Máximo de usuários que podem ser buscados por vez
       const batchSize = 100;
       // Divida a lista de IDs de usuário em lotes menores
@@ -58,12 +53,11 @@ export class TwitchService {
       for (let i = 0; i < userIds.length; i += batchSize) {
         batches.push(userIds.slice(i, i + batchSize));
       }
-
       // Faça várias chamadas à API do Twitch para cada lote de IDs de usuário
       const usersData = [] as any;
       for (const batch of batches) {
         const batchIds = batch.join('&id=');
-        const { data: batchData } : any = await this.httpService.get(`https://api.twitch.tv/helix/users?${batchIds}`, {
+        const { data: batchData } : any = await this.httpService.get(`https://api.twitch.tv/helix/users?id=${batchIds}`, {
           headers
         }).toPromise()
         .catch((error) => {
@@ -72,7 +66,6 @@ export class TwitchService {
 
         usersData.push(...batchData.data);
       }
-
       const usersWithViewsAndImage = subs.map((follow) => {
         const user = usersData.find((userData) => userData.id === follow.user_id);
         return {
@@ -88,8 +81,7 @@ export class TwitchService {
         selected: false,
         currentMiddle: false,
         img: item.image,
-        followed_at: item.followed_at,
-        from_id: item.user_login,
+        from_id: item.user_id,
         from_name: item.user_name,
         is_gift: item.is_gift,
       }));
@@ -97,7 +89,7 @@ export class TwitchService {
       console.log("SUBS TOTAL", subs.length);
       console.log("USERS TOTAL", usersData.length);
 
-       return { data: response };
+      return { data: response };
   }
 
   async getViews(userId: string, accessToken: string): Promise<any> {
@@ -151,7 +143,7 @@ export class TwitchService {
     const usersData = [] as any;
     for (const batch of batches) {
       const batchIds = batch.join('&id=');
-      const { data: batchData } : any = await this.httpService.get(`https://api.twitch.tv/helix/users?${batchIds}`, {
+      const { data: batchData } : any = await this.httpService.get(`https://api.twitch.tv/helix/users?id=${batchIds}`, {
         headers
       }).toPromise()
       .catch((error) => {
